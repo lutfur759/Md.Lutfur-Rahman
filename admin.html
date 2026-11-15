@@ -3,193 +3,130 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard | Md. Lutfur Rahman</title>
+    <meta name="theme-color" content="#0b1020" />
+    <title>Studio Admin | Md. Lutfur Rahman</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="admin-premium.css" />
   </head>
-  <body data-page="admin">
+  <body data-page="admin" class="admin-page">
     <div class="auth-shell" id="authPanel">
-      <div class="auth-box">
-        <span class="eyebrow">Admin Access</span>
-        <h2>Dashboard Login</h2>
-        <p>Use your administrator account to manage the website content.</p>
-
+      <div class="auth-box premium-auth">
+        <div class="auth-brand"><span class="brand-mark">LR</span><span>CREATOR STUDIO</span></div>
+        <span class="eyebrow" data-i18n="adminAccess">ADMIN ACCESS</span>
+        <h1 data-i18n="loginTitle">Welcome back</h1>
+        <p data-i18n="loginSubtitle">Sign in to manage your portfolio and site content.</p>
         <form id="loginForm">
-          <div class="field" style="margin-bottom: 14px;">
-            <label for="username">Username</label>
-            <input id="username" type="text" value="admin" required />
+          <div class="field">
+            <label for="username" data-i18n="username">Username</label>
+            <input id="username" type="text" autocomplete="username" value="admin" required />
           </div>
-
-          <div class="field" style="margin-bottom: 14px;">
-            <label for="password">Password</label>
-            <input id="password" type="password" placeholder="Enter password" required />
+          <div class="field">
+            <label for="password" data-i18n="password">Password</label>
+            <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required />
           </div>
-
-          <button class="btn" type="submit">Login</button>
+          <button class="btn auth-submit" type="submit" data-i18n="signIn">Sign in to dashboard</button>
         </form>
+        <div class="demo-warning"><strong data-i18n="demoOnly">Demo login only</strong><span data-i18n="demoWarning">This static-site login is not secure. Do not use it to protect private content or publish credentials.</span></div>
+        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch language">বাংলা</button>
       </div>
     </div>
 
     <div class="admin-shell hidden" id="adminPanel">
-      <div class="container">
-        <div class="admin-topbar">
-          <h1>Website Dashboard</h1>
-          <div class="admin-actions">
-            <a class="btn btn-outline" href="index.html" target="_blank">Preview Site</a>
-            <button class="btn btn-small" id="saveAllBtn">Save Changes</button>
-            <button class="ghost-btn" id="logoutBtn">Log out</button>
+      <div class="admin-frame">
+        <aside class="admin-sidebar">
+          <a class="admin-brand" href="index.html"><span class="brand-mark">LR</span><span><strong>Creator Studio</strong><small>PERSONAL WEBSITE</small></span></a>
+          <div class="sidebar-label" data-i18n="workspace">WORKSPACE</div>
+          <nav class="sidebar-nav" aria-label="Dashboard sections">
+            <button class="nav-btn active" type="button" data-section="overview"><span class="nav-icon">◫</span><span data-i18n="overview">Overview</span></button>
+            <button class="nav-btn" type="button" data-section="profile"><span class="nav-icon">◉</span><span data-i18n="profile">Profile & contact</span></button>
+            <button class="nav-btn" type="button" data-section="projects"><span class="nav-icon">▧</span><span data-i18n="projects">Projects & portfolio</span></button>
+            <button class="nav-btn" type="button" data-section="features"><span class="nav-icon">✳</span><span data-i18n="features">Features</span></button>
+            <button class="nav-btn" type="button" data-section="videos"><span class="nav-icon">▷</span><span data-i18n="videos">Videos</span></button>
+            <button class="nav-btn" type="button" data-section="socials"><span class="nav-icon">↗</span><span data-i18n="socialLinks">Social links</span></button>
+          </nav>
+          <div class="sidebar-bottom">
+            <div class="sidebar-tip"><span class="tip-dot"></span><div><strong data-i18n="localDemo">Local demo</strong><small data-i18n="localDemoText">Changes save in this browser only.</small></div></div>
+            <button class="language-toggle sidebar-language" type="button" data-language-toggle>বাংলা</button>
           </div>
-        </div>
+        </aside>
 
-        <div class="admin-layout">
-          <aside class="sidebar">
-            <button class="nav-btn active" type="button">Website Settings</button>
-            <button class="nav-btn" type="button">Projects</button>
-            <button class="nav-btn" type="button">Features</button>
-            <button class="nav-btn" type="button">Videos</button>
-            <button class="nav-btn" type="button">Socials</button>
-            <button class="btn danger-btn" id="resetBtn" type="button">Reset Data</button>
-          </aside>
+        <main class="admin-main">
+          <header class="dashboard-topbar">
+            <div class="breadcrumb"><span data-i18n="dashboard">Dashboard</span><span>/</span><strong id="currentSectionLabel" data-i18n="overview">Overview</strong></div>
+            <div class="topbar-actions">
+              <span class="save-status"><i></i><span data-i18n="savedLocally">Saved locally</span></span>
+              <a class="btn btn-outline" href="index.html" target="_blank" rel="noopener"><span>↗</span><span data-i18n="previewSite">Preview site</span></a>
+              <button class="ghost-btn" id="logoutBtn" type="button" data-i18n="logout">Log out</button>
+            </div>
+          </header>
 
-          <div class="admin-panel">
-            <section>
-              <h2>Website settings</h2>
-              <div class="form-grid">
-                <div class="field">
-                  <label for="siteName">Name</label>
-                  <input id="siteName" type="text" />
-                </div>
-                <div class="field">
-                  <label for="siteTitle">Professional title</label>
-                  <input id="siteTitle" type="text" />
-                </div>
-                <div class="field full">
-                  <label for="siteSubtitle">Short introduction</label>
-                  <input id="siteSubtitle" type="text" />
-                </div>
-                <div class="field full">
-                  <label for="bioText">About text</label>
-                  <textarea id="bioText"></textarea>
-                </div>
-                <div class="field">
-                  <label for="emailInput">Email</label>
-                  <input id="emailInput" type="email" />
-                </div>
-                <div class="field">
-                  <label for="phoneInput">Phone</label>
-                  <input id="phoneInput" type="text" />
-                </div>
-                <div class="field">
-                  <label for="locationInput">Location</label>
-                  <input id="locationInput" type="text" />
-                </div>
-                <div class="field">
-                  <label for="resumeInput">CV / Resume URL</label>
-                  <input id="resumeInput" type="text" />
-                </div>
-                <div class="field">
-                  <label for="statsYears">Years</label>
-                  <input id="statsYears" type="text" />
-                </div>
-                <div class="field">
-                  <label for="statsProjects">Projects</label>
-                  <input id="statsProjects" type="text" />
-                </div>
-                <div class="field">
-                  <label for="statsClients">Clients</label>
-                  <input id="statsClients" type="text" />
-                </div>
-              </div>
-            </section>
+          <section class="dashboard-section active" data-panel="overview">
+            <div class="welcome-row"><div><span class="eyebrow" data-i18n="dashboardOverview">DASHBOARD OVERVIEW</span><h1 data-i18n="welcomeTitle">Your creative workspace</h1><p data-i18n="welcomeText">Manage your profile, work, videos and contact details from one place.</p></div><div class="welcome-date"><span class="date-icon">✦</span><span data-i18n="portfolioManager">Portfolio manager</span></div></div>
+            <div class="metric-grid">
+              <article class="metric-card"><span class="metric-icon cyan">▧</span><div><small data-i18n="portfolioProjects">Portfolio projects</small><strong id="projectCount">0</strong></div><button type="button" data-go="projects" aria-label="Open projects">↗</button></article>
+              <article class="metric-card"><span class="metric-icon violet">▷</span><div><small data-i18n="featuredVideos">Featured videos</small><strong id="videoCount">0</strong></div><button type="button" data-go="videos" aria-label="Open videos">↗</button></article>
+              <article class="metric-card"><span class="metric-icon green">✳</span><div><small data-i18n="serviceFeatures">Service features</small><strong id="featureCount">0</strong></div><button type="button" data-go="features" aria-label="Open features">↗</button></article>
+              <article class="metric-card"><span class="metric-icon amber">↗</span><div><small data-i18n="socialProfiles">Social profiles</small><strong id="socialCount">0</strong></div><button type="button" data-go="socials" aria-label="Open social links">↗</button></article>
+            </div>
+            <div class="overview-grid">
+              <article class="dashboard-card quick-card"><div class="card-heading"><div><span class="eyebrow" data-i18n="quickActions">QUICK ACTIONS</span><h2 data-i18n="manageContent">Manage your content</h2></div><span class="heading-mark">✦</span></div><div class="quick-actions"><button type="button" data-go="projects"><span class="quick-icon cyan">＋</span><span><strong data-i18n="addProject">Add a project</strong><small data-i18n="addProjectText">Showcase recent work</small></span><b>→</b></button><button type="button" data-go="videos"><span class="quick-icon violet">▷</span><span><strong data-i18n="addVideo">Add a video</strong><small data-i18n="addVideoText">Feature a showreel or edit</small></span><b>→</b></button><button type="button" data-go="profile"><span class="quick-icon green">◉</span><span><strong data-i18n="updateContact">Update contact details</strong><small data-i18n="updateContactText">Keep your profile current</small></span><b>→</b></button></div></article>
+              <article class="dashboard-card profile-summary"><div class="card-heading"><div><span class="eyebrow" data-i18n="publicProfile">PUBLIC PROFILE</span><h2 data-i18n="profilePreview">Profile snapshot</h2></div><button type="button" class="text-action" data-go="profile" data-i18n="editProfile">Edit profile ↗</button></div><div class="profile-avatar" id="summaryInitials">LR</div><h3 id="summaryName">Md. Lutfur Rahman</h3><p id="summaryTitle">Editor & Actor</p><div class="summary-divider"></div><small id="summaryEmail">lutfurme2017@gmail.com</small></article>
+            </div>
+            <div class="dashboard-note"><span>ⓘ</span><p><strong data-i18n="importantNote">Important:</strong> <span data-i18n="importantNoteText">This static version stores content in your browser only. To publish dashboard edits for every visitor, connect a real CMS or backend before launch.</span></p></div>
+          </section>
 
-            <section class="list-card">
-              <div class="list-card-header">
-                <h3>Social links</h3>
-              </div>
+          <section class="dashboard-section" data-panel="profile">
+            <div class="section-title-row"><div><span class="eyebrow" data-i18n="profileSettings">PROFILE SETTINGS</span><h1 data-i18n="profileContactTitle">Profile & contact</h1><p data-i18n="profileContactDesc">Edit the information visitors see on your portfolio.</p></div></div>
+            <section class="dashboard-card editor-card"><div class="card-heading"><div><h2 data-i18n="identityIntro">Identity & introduction</h2><p data-i18n="identityIntroDesc">Your name, professional title and bio.</p></div><span class="card-step">01</span></div><div class="form-grid">
+              <div class="field"><label for="siteName" data-i18n="name">Name</label><input id="siteName" type="text" /></div><div class="field"><label for="siteTitle" data-i18n="professionalTitle">Professional title</label><input id="siteTitle" type="text" /></div>
+              <div class="field full"><label for="siteSubtitle" data-i18n="shortIntro">Short introduction</label><input id="siteSubtitle" type="text" /></div><div class="field full"><label for="bioText" data-i18n="aboutBio">About / biography</label><textarea id="bioText"></textarea></div>
+            </div></section>
+            <section class="dashboard-card editor-card"><div class="card-heading"><div><h2 data-i18n="contactDetails">Contact details</h2><p data-i18n="contactDetailsDesc">Ways for clients and collaborators to reach you.</p></div><span class="card-step">02</span></div><div class="form-grid">
+              <div class="field"><label for="emailInput" data-i18n="emailAddress">Email address</label><input id="emailInput" type="email" /></div><div class="field"><label for="phoneInput" data-i18n="phone">Phone</label><input id="phoneInput" type="text" /></div><div class="field"><label for="locationInput" data-i18n="location">Location</label><input id="locationInput" type="text" /></div><div class="field"><label for="resumeInput" data-i18n="cvLink">CV / resume link</label><input id="resumeInput" type="url" /></div>
+            </div></section>
+            <section class="dashboard-card editor-card"><div class="card-heading"><div><h2 data-i18n="profileStats">Profile statistics</h2><p data-i18n="profileStatsDesc">Small highlights shown on your public page.</p></div><span class="card-step">03</span></div><div class="form-grid">
+              <div class="field"><label for="statsYears" data-i18n="yearsExperience">Years of experience</label><input id="statsYears" type="text" /></div><div class="field"><label for="statsProjects" data-i18n="projectsCompleted">Projects completed</label><input id="statsProjects" type="text" /></div><div class="field"><label for="statsClients" data-i18n="clients">Clients</label><input id="statsClients" type="text" /></div>
+            </div></section>
+          </section>
 
-              <div class="form-grid">
-                <div class="field">
-                  <label for="socialLabel">Label</label>
-                  <input id="socialLabel" type="text" placeholder="Facebook" />
-                </div>
-                <div class="field">
-                  <label for="socialUrl">URL</label>
-                  <input id="socialUrl" type="url" placeholder="https://..." />
-                </div>
-              </div>
-              <button class="success-btn" type="button" id="addSocialBtn" style="margin-top: 12px;">Add Social</button>
-              <div id="socialList"></div>
-            </section>
+          <section class="dashboard-section" data-panel="projects">
+            <div class="section-title-row"><div><span class="eyebrow" data-i18n="portfolioManagement">PORTFOLIO MANAGEMENT</span><h1 data-i18n="projectsPortfolioTitle">Projects & portfolio</h1><p data-i18n="projectsPortfolioDesc">Add project highlights and link visitors to your work.</p></div></div>
+            <section class="dashboard-card editor-card"><div class="card-heading"><div><h2 data-i18n="newProject">Create a project</h2><p data-i18n="newProjectDesc">Add a title, description, project link and tags.</p></div><span class="card-step">＋</span></div><div class="form-grid">
+              <div class="field"><label for="projectTitle" data-i18n="projectName">Project name</label><input id="projectTitle" type="text" placeholder="e.g. Short film edit" /></div><div class="field"><label for="projectLink" data-i18n="projectUrl">Project URL</label><input id="projectLink" type="url" placeholder="https://..." /></div><div class="field full"><label for="projectDescription" data-i18n="description">Description</label><textarea id="projectDescription"></textarea></div><div class="field full"><label for="projectTags" data-i18n="tags">Tags (comma separated)</label><input id="projectTags" type="text" placeholder="Editing, Film, Post-production" /></div>
+            </div><button class="success-btn add-action" type="button" id="addProjectBtn"><span>＋</span><span data-i18n="addToPortfolio">Add to portfolio</span></button></section>
+            <section class="dashboard-card list-card premium-list"><div class="card-heading"><div><h2 data-i18n="publishedProjects">Portfolio projects</h2><p data-i18n="publishedProjectsDesc">Items currently included in your portfolio.</p></div></div><div id="projectList" class="managed-list"></div></section>
+          </section>
 
-            <section class="list-card">
-              <div class="list-card-header">
-                <h3>Feature cards</h3>
-              </div>
+          <section class="dashboard-section" data-panel="features">
+            <div class="section-title-row"><div><span class="eyebrow" data-i18n="servicesSkills">SERVICES & SKILLS</span><h1 data-i18n="featuresTitle">Features</h1><p data-i18n="featuresDesc">Highlight your services, strengths and creative capabilities.</p></div></div>
+            <section class="dashboard-card editor-card"><div class="card-heading"><div><h2 data-i18n="newFeature">Create a feature</h2><p data-i18n="newFeatureDesc">Add a concise title and a clear description.</p></div><span class="card-step">✳</span></div><div class="form-grid">
+              <div class="field full"><label for="featureTitle" data-i18n="featureTitle">Feature title</label><input id="featureTitle" type="text" /></div><div class="field full"><label for="featureDescription" data-i18n="description">Description</label><textarea id="featureDescription"></textarea></div>
+            </div><button class="success-btn add-action" type="button" id="addFeatureBtn"><span>＋</span><span data-i18n="addFeatureAction">Add feature</span></button></section>
+            <section class="dashboard-card list-card premium-list"><div class="card-heading"><div><h2 data-i18n="currentFeatures">Current features</h2><p data-i18n="currentFeaturesDesc">Manage the features visitors see.</p></div></div><div id="featureList" class="managed-list"></div></section>
+          </section>
 
-              <div class="form-grid">
-                <div class="field">
-                  <label for="featureTitle">Title</label>
-                  <input id="featureTitle" type="text" />
-                </div>
-                <div class="field full">
-                  <label for="featureDescription">Short description</label>
-                  <textarea id="featureDescription"></textarea>
-                </div>
-              </div>
-              <button class="success-btn" type="button" id="addFeatureBtn" style="margin-top: 12px;">Add Feature</button>
-              <div id="featureList"></div>
-            </section>
+          <section class="dashboard-section" data-panel="videos">
+            <div class="section-title-row"><div><span class="eyebrow" data-i18n="videoManagement">VIDEO MANAGEMENT</span><h1 data-i18n="videosTitle">Videos & showreels</h1><p data-i18n="videosDesc">Feature your showreel, edits and other video work.</p></div></div>
+            <section class="dashboard-card editor-card"><div class="card-heading"><div><h2 data-i18n="newVideo">Add a video</h2><p data-i18n="newVideoDesc">Paste a YouTube or supported video embed URL.</p></div><span class="card-step">▷</span></div><div class="form-grid">
+              <div class="field"><label for="videoTitle" data-i18n="videoTitle">Video title</label><input id="videoTitle" type="text" /></div><div class="field"><label for="videoUrl" data-i18n="videoUrl">Video URL</label><input id="videoUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." /></div>
+            </div><button class="success-btn add-action" type="button" id="addVideoBtn"><span>＋</span><span data-i18n="addVideoAction">Add video</span></button></section>
+            <section class="dashboard-card list-card premium-list"><div class="card-heading"><div><h2 data-i18n="currentVideos">Current videos</h2><p data-i18n="currentVideosDesc">Videos displayed on your portfolio page.</p></div></div><div id="videoList" class="managed-list"></div></section>
+          </section>
 
-            <section class="list-card">
-              <div class="list-card-header">
-                <h3>Projects</h3>
-              </div>
+          <section class="dashboard-section" data-panel="socials">
+            <div class="section-title-row"><div><span class="eyebrow" data-i18n="onlinePresence">ONLINE PRESENCE</span><h1 data-i18n="socialLinksTitle">Social links</h1><p data-i18n="socialLinksDesc">Connect visitors to your professional profiles and other sites.</p></div></div>
+            <section class="dashboard-card editor-card"><div class="card-heading"><div><h2 data-i18n="newSocialLink">Add a link</h2><p data-i18n="newSocialDesc">Add a display name and its full URL.</p></div><span class="card-step">↗</span></div><div class="form-grid">
+              <div class="field"><label for="socialLabel" data-i18n="linkName">Link name</label><input id="socialLabel" type="text" placeholder="Facebook" /></div><div class="field"><label for="socialUrl" data-i18n="linkUrl">Link URL</label><input id="socialUrl" type="url" placeholder="https://..." /></div>
+            </div><button class="success-btn add-action" type="button" id="addSocialBtn"><span>＋</span><span data-i18n="addLink">Add link</span></button></section>
+            <section class="dashboard-card list-card premium-list"><div class="card-heading"><div><h2 data-i18n="currentLinks">Current links</h2><p data-i18n="currentLinksDesc">Social links shown on your public profile.</p></div></div><div id="socialList" class="managed-list"></div></section>
+          </section>
 
-              <div class="form-grid">
-                <div class="field">
-                  <label for="projectTitle">Project name</label>
-                  <input id="projectTitle" type="text" />
-                </div>
-                <div class="field">
-                  <label for="projectLink">Project link</label>
-                  <input id="projectLink" type="url" placeholder="https://..." />
-                </div>
-                <div class="field full">
-                  <label for="projectDescription">Description</label>
-                  <textarea id="projectDescription"></textarea>
-                </div>
-                <div class="field full">
-                  <label for="projectTags">Tags (comma separated)</label>
-                  <input id="projectTags" type="text" placeholder="Editing, Brand, Video" />
-                </div>
-              </div>
-              <button class="success-btn" type="button" id="addProjectBtn" style="margin-top: 12px;">Add Project</button>
-              <div id="projectList"></div>
-            </section>
-
-            <section class="list-card">
-              <div class="list-card-header">
-                <h3>Videos</h3>
-              </div>
-
-              <div class="form-grid">
-                <div class="field">
-                  <label for="videoTitle">Video title</label>
-                  <input id="videoTitle" type="text" />
-                </div>
-                <div class="field">
-                  <label for="videoUrl">Video URL</label>
-                  <input id="videoUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." />
-                </div>
-              </div>
-              <button class="success-btn" type="button" id="addVideoBtn" style="margin-top: 12px;">Add Video</button>
-              <div id="videoList"></div>
-            </section>
-          </div>
-        </div>
+          <footer class="dashboard-footer"><span>© <span id="adminYear"></span> Md. Lutfur Rahman</span><span data-i18n="adminFooter">A simple space for your creative work.</span><button class="btn danger-btn" id="resetBtn" type="button" data-i18n="resetData">Reset content</button></footer>
+        </main>
       </div>
     </div>
-
     <div id="toast" class="toast" aria-live="polite"></div>
     <script src="script.js"></script>
+    <script src="admin-ui.js"></script>
   </body>
 </html>
