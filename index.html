@@ -1,68 +1,138 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Md. Lutfur Rahman — Editor & Actor</title>
-  <meta name="description" content="Md. Lutfur Rahman — Editor & Actor. Showreel, credits, and contact." />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <h1 id="name">Md. Lutfur Rahman</h1>
-      <p class="headline">Editor & Actor</p>
-      <nav class="socials">
-        <a href="https://www.facebook.com/lutfur759" target="_blank" rel="noopener">Facebook</a>
-      </nav>
-      <div class="cta">
-        <a href="#showreel" class="btn">View Showreel</a>
-        <a href="#contact" class="btn btn-outline">Contact</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Md. Lutfur Rahman | Editor & Actor</title>
+    <meta
+      name="description"
+      content="Portfolio and professional profile for Md. Lutfur Rahman — editor, actor, and creative professional."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="public">
+    <header class="site-header">
+      <div class="container hero-wrap">
+        <nav class="topbar">
+          <div class="brand" id="brandName">Md. Lutfur Rahman</div>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#videos">Videos</a>
+            <a href="#contact">Contact</a>
+            <a class="btn btn-small" href="admin.html">Admin</a>
+          </div>
+        </nav>
+
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">English / বাংলা</span>
+            <h1 id="heroTitle">Editor & Actor</h1>
+            <p id="heroBio">
+              Creative, detail-focused professional delivering polished visual storytelling
+              across editing and performance work.
+            </p>
+            <div class="cta-row">
+              <a class="btn" href="#videos">Watch Showreel</a>
+              <a class="btn btn-outline" href="#contact">Book Me</a>
+            </div>
+            <div class="hero-socials" id="socialLinks"></div>
+          </div>
+
+          <div class="hero-card">
+            <div class="mini-label">Profile</div>
+            <h3 id="profileName">Md. Lutfur Rahman</h3>
+            <ul class="check-list">
+              <li>Video Editing</li>
+              <li>Acting</li>
+              <li>Creative Content</li>
+              <li>Professional Projects</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <section id="showreel" class="section container">
-      <h2>Showreel</h2>
-      <div class="video-wrapper">
-        <!-- Replace src with your YouTube/Vimeo embed -->
-        <iframe width="800" height="450" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen title="Showreel"></iframe>
+    <main>
+      <section id="about" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">About</span>
+            <h2>Creative professional with a strong visual eye</h2>
+          </div>
+          <div class="about-grid">
+            <div>
+              <p id="aboutText">
+                Professional editor and actor with a passion for crafting stories that connect with audiences.
+                I bring creativity, timing, and discipline to every project, from concept to final delivery.
+              </p>
+            </div>
+            <div class="stats-box">
+              <div><strong id="statYears">6+</strong><span>Years Experience</span></div>
+              <div><strong id="statProjects">25+</strong><span>Projects</span></div>
+              <div><strong id="statClients">12+</strong><span>Clients</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt-bg">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Features</span>
+            <h2>What I bring to your project</h2>
+          </div>
+          <div id="featuresGrid" class="feature-grid"></div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Portfolio</span>
+            <h2>Selected work</h2>
+          </div>
+          <div id="projectsGrid" class="card-grid"></div>
+        </div>
+      </section>
+
+      <section id="videos" class="section alt-bg">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Videos</span>
+            <h2>Showreel & featured work</h2>
+          </div>
+          <div id="videoGrid" class="video-grid"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container contact-wrap">
+          <div class="contact-copy">
+            <span class="kicker">Contact</span>
+            <h2>Let’s build something memorable</h2>
+            <p>
+              Available for creative collaborations, editing projects, acting opportunities,
+              and content partnerships.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <p><strong>Email:</strong> <a id="emailLink" href="mailto:lutfurme2017@gmail.com">lutfurme2017@gmail.com</a></p>
+            <p><strong>Phone:</strong> <span id="phoneText">+880 0000 000000</span></p>
+            <p><strong>Location:</strong> <span id="locationText">Bangladesh</span></p>
+            <a class="btn" id="resumeLink" href="#">Download CV</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© <span id="yearStamp"></span> <span id="footerName">Md. Lutfur Rahman</span></p>
       </div>
-    </section>
+    </footer>
 
-    <section id="about" class="section container">
-      <h2>About</h2>
-      <p id="bio">Professional editor and actor. Replace this text with a short bio (1–3 paragraphs) describing your background, specialties, and what you bring to projects.</p>
-    </section>
-
-    <section id="credits" class="section container">
-      <h2>Selected Credits</h2>
-      <ul class="credits-list">
-        <li><strong>Project Title</strong> — Role (Year) — Director / Production (replace with your credits)</li>
-        <li>Another Project — Role (Year)</li>
-      </ul>
-    </section>
-
-    <section id="skills" class="section container">
-      <h2>Skills & Tools</h2>
-      <p>Editing: Premiere Pro, Avid, DaVinci Resolve. Acting: stage, screen, voice. Languages: (add languages)</p>
-    </section>
-
-    <section id="contact" class="section container">
-      <h2>Contact / Booking</h2>
-      <p>Email: <a id="contact-email" href="mailto:lutfurme2017@gmail.com">lutfurme2017@gmail.com</a></p>
-      <p>Agent / Manager: (add if needed)</p>
-      <a class="btn" href="resume.pdf" download>Download Resume</a>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Md. Lutfur Rahman — Editor & Actor</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
