@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Md. Lutfur Rahman</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="admin">
+    <div class="auth-shell" id="authPanel">
+      <div class="auth-box">
+        <span class="eyebrow">Admin Access</span>
+        <h2>Dashboard Login</h2>
+        <p>Use your administrator account to manage the website content.</p>
+
+        <form id="loginForm">
+          <div class="field" style="margin-bottom: 14px;">
+            <label for="username">Username</label>
+            <input id="username" type="text" value="admin" required />
+          </div>
+
+          <div class="field" style="margin-bottom: 14px;">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Enter password" required />
+          </div>
+
+          <button class="btn" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="admin-shell hidden" id="adminPanel">
+      <div class="container">
+        <div class="admin-topbar">
+          <h1>Website Dashboard</h1>
+          <div class="admin-actions">
+            <a class="btn btn-outline" href="index.html" target="_blank">Preview Site</a>
+            <button class="btn btn-small" id="saveAllBtn">Save Changes</button>
+            <button class="ghost-btn" id="logoutBtn">Log out</button>
+          </div>
+        </div>
+
+        <div class="admin-layout">
+          <aside class="sidebar">
+            <button class="nav-btn active" type="button">Website Settings</button>
+            <button class="nav-btn" type="button">Projects</button>
+            <button class="nav-btn" type="button">Features</button>
+            <button class="nav-btn" type="button">Videos</button>
+            <button class="nav-btn" type="button">Socials</button>
+            <button class="btn danger-btn" id="resetBtn" type="button">Reset Data</button>
+          </aside>
+
+          <div class="admin-panel">
+            <section>
+              <h2>Website settings</h2>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="siteName">Name</label>
+                  <input id="siteName" type="text" />
+                </div>
+                <div class="field">
+                  <label for="siteTitle">Professional title</label>
+                  <input id="siteTitle" type="text" />
+                </div>
+                <div class="field full">
+                  <label for="siteSubtitle">Short introduction</label>
+                  <input id="siteSubtitle" type="text" />
+                </div>
+                <div class="field full">
+                  <label for="bioText">About text</label>
+                  <textarea id="bioText"></textarea>
+                </div>
+                <div class="field">
+                  <label for="emailInput">Email</label>
+                  <input id="emailInput" type="email" />
+                </div>
+                <div class="field">
+                  <label for="phoneInput">Phone</label>
+                  <input id="phoneInput" type="text" />
+                </div>
+                <div class="field">
+                  <label for="locationInput">Location</label>
+                  <input id="locationInput" type="text" />
+                </div>
+                <div class="field">
+                  <label for="resumeInput">CV / Resume URL</label>
+                  <input id="resumeInput" type="text" />
+                </div>
+                <div class="field">
+                  <label for="statsYears">Years</label>
+                  <input id="statsYears" type="text" />
+                </div>
+                <div class="field">
+                  <label for="statsProjects">Projects</label>
+                  <input id="statsProjects" type="text" />
+                </div>
+                <div class="field">
+                  <label for="statsClients">Clients</label>
+                  <input id="statsClients" type="text" />
+                </div>
+              </div>
+            </section>
+
+            <section class="list-card">
+              <div class="list-card-header">
+                <h3>Social links</h3>
+              </div>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label for="socialLabel">Label</label>
+                  <input id="socialLabel" type="text" placeholder="Facebook" />
+                </div>
+                <div class="field">
+                  <label for="socialUrl">URL</label>
+                  <input id="socialUrl" type="url" placeholder="https://..." />
+                </div>
+              </div>
+              <button class="success-btn" type="button" id="addSocialBtn" style="margin-top: 12px;">Add Social</button>
+              <div id="socialList"></div>
+            </section>
+
+            <section class="list-card">
+              <div class="list-card-header">
+                <h3>Feature cards</h3>
+              </div>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label for="featureTitle">Title</label>
+                  <input id="featureTitle" type="text" />
+                </div>
+                <div class="field full">
+                  <label for="featureDescription">Short description</label>
+                  <textarea id="featureDescription"></textarea>
+                </div>
+              </div>
+              <button class="success-btn" type="button" id="addFeatureBtn" style="margin-top: 12px;">Add Feature</button>
+              <div id="featureList"></div>
+            </section>
+
+            <section class="list-card">
+              <div class="list-card-header">
+                <h3>Projects</h3>
+              </div>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label for="projectTitle">Project name</label>
+                  <input id="projectTitle" type="text" />
+                </div>
+                <div class="field">
+                  <label for="projectLink">Project link</label>
+                  <input id="projectLink" type="url" placeholder="https://..." />
+                </div>
+                <div class="field full">
+                  <label for="projectDescription">Description</label>
+                  <textarea id="projectDescription"></textarea>
+                </div>
+                <div class="field full">
+                  <label for="projectTags">Tags (comma separated)</label>
+                  <input id="projectTags" type="text" placeholder="Editing, Brand, Video" />
+                </div>
+              </div>
+              <button class="success-btn" type="button" id="addProjectBtn" style="margin-top: 12px;">Add Project</button>
+              <div id="projectList"></div>
+            </section>
+
+            <section class="list-card">
+              <div class="list-card-header">
+                <h3>Videos</h3>
+              </div>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label for="videoTitle">Video title</label>
+                  <input id="videoTitle" type="text" />
+                </div>
+                <div class="field">
+                  <label for="videoUrl">Video URL</label>
+                  <input id="videoUrl" type="url" placeholder="https://www.youtube.com/watch?v=..." />
+                </div>
+              </div>
+              <button class="success-btn" type="button" id="addVideoBtn" style="margin-top: 12px;">Add Video</button>
+              <div id="videoList"></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
