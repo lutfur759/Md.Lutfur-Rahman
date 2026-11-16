@@ -1,4 +1,4 @@
-# Personal Website — Md. Lutfur Rahman (starter)
+# Personal Website — **Belal Ahmed Murad** (starter)
 
 This is a minimal single-page site for an Editor & Actor.
 
